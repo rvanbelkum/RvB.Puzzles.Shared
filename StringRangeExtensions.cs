@@ -5,13 +5,9 @@ namespace RvB.Puzzles.Shared;
 
 public static class StringRangeExtensions {
     extension<T>(Iterable<Split, StringRange> iterator) where T : INumber<T> {
-        public T[] ToNumberArray() {
-            return iterator.Select(n => T.Parse(n, null)).ToArray();
-        }
+        public T[] ToNumberArray() => [.. iterator.Select(n => T.Parse(n, null))];
 
-        public List<T> ToNumberList() {
-            return iterator.Select(n => T.Parse(n, null)).ToList();
-        }
+        public List<T> ToNumberList() => [.. iterator.Select(n => T.Parse(n, null))];
     }
 
     extension(Iterable<Split, StringRange> iterator) {
